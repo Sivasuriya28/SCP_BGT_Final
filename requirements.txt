@@ -6,6 +6,6 @@ pytz
 python-dateutil
 PyYAML
 djangorestframework
-django-crispy-forms==2.3
-crispy-bootstrap5==2024.10
-pillow==11.2.0
+django-crispy-forms
+crispy-bootstrap5
+pillow
