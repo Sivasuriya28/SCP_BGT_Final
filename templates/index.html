@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - Budget Tracker</title>
+  <link rel="stylesheet" href="{% static 'expenses/style.css' %}">
+</head>
+<body>
+  {% include 'expenses/navbar.html' %}
+
+  <div class="container">
+    <h1>BUDGET SUMMARY</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Allocated</th>
+          <th>Spent</th>
+          <th>Remaining</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="summary-table-body">
+        <!-- Loaded via JS -->
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container">
+    <h1>EXPENSE SUMMARY</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Description</th>
+          <th>Amount</th>
+          <th>Date</th>
+          <th>Currency</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="expense-summary-body">
+        <!-- Loaded via JS -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Scripts -->
+  <script src="{% static 'expenses/script.js' %}?v={{ timestamp }}"></script>
+</body>
+</html>

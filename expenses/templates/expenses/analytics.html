@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Analytics - Budget Tracker</title>
+  <link rel="stylesheet" href="{% static 'expenses/style.css' %}">
+</head>
+<body>
+  {% include 'expenses/navbar.html' %}
+
+  <div class="container">
+    <h1>ANALYSIS</h1>
+
+    <canvas id="budgetPieChart" width="500" height="500" class="chart-canvas"></canvas>
+    <canvas id="budgetBarChart" width="500" height="500" class="chart-canvas"></canvas>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="{% static 'expenses/analytics.js' %}"></script>
+</body>
+</html>

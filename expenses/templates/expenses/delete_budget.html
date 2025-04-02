@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Delete Budget - Budget Tracker</title>
+  <link rel="stylesheet" href="{% static 'expenses/style.css' %}">
+  <style>
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 40px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 25px;
+      color: #2c3e50;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .form-actions {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      background-color: #2980b9;
+    }
+
+    .delete-btn {
+      background-color: #e74c3c;
+    }
+
+    .delete-btn:hover {
+      background-color: #c0392b;
+    }
+  </style>
+</head>
+<body>
+  {% include 'expenses/navbar.html' %}
+
+  <div class="container">
+    <h1>DELETE BUDGET</h1>
+    <p>Are you sure you want to delete the budget for <strong>{{ budget.category }}</strong>?</p>
+
+    <form method="POST">
+      {% csrf_token %}
+      <div class="form-actions">
+        <button type="submit" class="button delete-btn">YES, DELETE</button>
+        <a href="{% url 'home' %}" class="button">CANCEL</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

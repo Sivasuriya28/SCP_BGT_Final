@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login | Budget Tracker</title>
+  <link rel="stylesheet" href="{% static 'expenses/style.css' %}">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background-color: #d6eaf8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .login-container {
+      background-color: white;
+      padding: 60px 50px;
+      border-radius: 18px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .login-container h2 {
+      margin-bottom: 30px;
+      font-size: 28px;
+      color: #2c3e50;
+    }
+
+    .form-group {
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      margin-top:20px;
+      margin: 0;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .login-btn:hover {
+      background-color: #2980b9;
+    }
+
+    .bottom-text {
+      margin-top: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .signup-link {
+      background-color: #3498db;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .signup-link:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>LOGIN</h2>
+    <form method="POST">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" required />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required />
+      </div>
+      <button type="submit" class="login-btn">LOGIN</button>
+    </form>
+
+    <!-- 👇 Add this block for signup redirect -->
+    <div class="bottom-text">
+      <span>Don't have an account?</span>
+      <a href="{% url 'signup' %}" class="signup-link">SIGN UP</a>
+    </div>
+  </div>
+</body>
+</html>
