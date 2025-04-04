@@ -19,7 +19,6 @@ def initialize_db():
         conn = get_db_connection()
         cursor = conn.cursor()
         
-        print(">> Creating tables...")
         # Updated Expenses table
         cursor.execute('''
             CREATE TABLE IF NOT EXISTS expenses (
@@ -43,7 +42,6 @@ def initialize_db():
 
         conn.commit()
         conn.close()
-        print(">> Tables created successfully.")
         logger.info("Database initialized successfully.")
     except sqlite3.Error as e:
         print(f"!! Error: {e}")

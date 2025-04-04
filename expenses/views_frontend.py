@@ -10,7 +10,6 @@ from django.contrib import messages
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.decorators import login_required
 
-
 def welcome(request):
     if request.user.is_authenticated:
         return redirect('home')
@@ -63,7 +62,7 @@ def logout_view(request):
     logout(request)
     return redirect('welcome')
 
-@login_required(login_url='welcome')  # Ensure it goes to the welcome page
+@login_required
 def home(request):
     return render(request, 'index.html', {'timestamp': now().timestamp()})
 

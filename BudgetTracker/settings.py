@@ -135,5 +135,6 @@ DEFAULT_ALERT_EMAIL = "sivasuriya.kandasamy28@gmail.com"
 # Currency Conversion API (used in views)
 CURRENCY_CONVERTER_API_URL = 'http://127.0.0.1:8000/api/convert/'
 
+LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'welcome'  # After logout, go back to the welcome page
