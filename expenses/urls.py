@@ -4,7 +4,7 @@ from .views import ExpenseViewSet, BudgetViewSet, SummaryView, BudgetCreateAPIVi
 from .views_frontend import (
     home, budget_page, expense_page, analytics_page,
     edit_expense, delete_expense, edit_budget, delete_budget, 
-    signup_view, login_view, logout_view, welcome  # use 'welcome' here, not 'welcome_view'
+    signup_view, login_view, logout_view, welcome, health_check
 )
 from django.views.generic import RedirectView
 router = DefaultRouter()

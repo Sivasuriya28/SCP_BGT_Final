@@ -9,6 +9,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
 
 def welcome(request):
     if request.user.is_authenticated:
@@ -153,3 +154,7 @@ def delete_budget(request, pk):
         return redirect('home')
 
     return render(request, 'expenses/delete_budget.html', {'budget': budget})
+
+
+def health_check(request):
+    return HttpResponse("OK", status=200)
