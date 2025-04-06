@@ -11,29 +11,25 @@
         "name": "Source",
         "actions": [
           {
-            "name": "Source",
+            "name": "SourceFromS3",
             "actionTypeId": {
               "category": "Source",
-              "owner": "ThirdParty",
-              "provider": "GitHub",
+              "owner": "AWS",
+              "provider": "S3",
               "version": "1"
             },
             "runOrder": 1,
             "configuration": {
-              "Branch": "main",
-              "OAuthToken": "****",
-              "Owner": "Sivasuriya28",
-              "PollForSourceChanges": "false",
-              "Repo": "SCP_BGT_Final"
+              "S3Bucket": "x23341963-bgt-artifacts",
+              "S3ObjectKey": "x23341963_bgt/SourceArti/lksWqeG.zip",
+              "PollForSourceChanges": "false"
             },
             "outputArtifacts": [
               {
                 "name": "SourceArtifact"
               }
             ],
-            "inputArtifacts": [],
-            "region": "eu-west-1",
-            "namespace": "SourceVariables"
+            "region": "eu-west-1"
           }
         ],
         "onFailure": {
