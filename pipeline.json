@@ -4,7 +4,7 @@
     "roleArn": "arn:aws:iam::250738637992:role/service-role/AWSCodePipelineServiceRole-eu-west-1-new",
     "artifactStore": {
       "type": "S3",
-      "location": "codepipeline-eu-west-1-869293753066"
+      "location": "x23341963-bgt-artifacts"
     },
     "stages": [
       {
