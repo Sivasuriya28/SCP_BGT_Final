@@ -1,0 +1,110 @@
+{
+  "pipeline": {
+    "name": "x23341963_bgt",
+    "roleArn": "arn:aws:iam::250738637992:role/service-role/AWSCodePipelineServiceRole-eu-west-1-new",
+    "artifactStore": {
+      "type": "S3",
+      "location": "codepipeline-eu-west-1-869293753066"
+    },
+    "stages": [
+      {
+        "name": "Source",
+        "actions": [
+          {
+            "name": "Source",
+            "actionTypeId": {
+              "category": "Source",
+              "owner": "ThirdParty",
+              "provider": "GitHub",
+              "version": "1"
+            },
+            "runOrder": 1,
+            "configuration": {
+              "Branch": "main",
+              "OAuthToken": "****",
+              "Owner": "Sivasuriya28",
+              "PollForSourceChanges": "false",
+              "Repo": "SCP_BGT_Final"
+            },
+            "outputArtifacts": [
+              {
+                "name": "SourceArtifact"
+              }
+            ],
+            "inputArtifacts": [],
+            "region": "eu-west-1",
+            "namespace": "SourceVariables"
+          }
+        ],
+        "onFailure": {
+          "result": "RETRY",
+          "retryConfiguration": {
+            "retryMode": "ALL_ACTIONS"
+          }
+        }
+      },
+      {
+        "name": "Build",
+        "actions": [
+          {
+            "name": "BuildAction",
+            "actionTypeId": {
+              "category": "Build",
+              "owner": "AWS",
+              "provider": "CodeBuild",
+              "version": "1"
+            },
+            "runOrder": 1,
+            "configuration": {
+              "ProjectName": "bgt-codebuild-project"
+            },
+            "outputArtifacts": [
+              {
+                "name": "BuildArtifact"
+              }
+            ],
+            "inputArtifacts": [
+              {
+                "name": "SourceArtifact"
+              }
+            ],
+            "region": "eu-west-1"
+          }
+        ]
+      },
+      {
+        "name": "Deploy",
+        "actions": [
+          {
+            "name": "Deploy",
+            "actionTypeId": {
+              "category": "Deploy",
+              "owner": "AWS",
+              "provider": "ElasticBeanstalk",
+              "version": "1"
+            },
+            "runOrder": 1,
+            "configuration": {
+              "ApplicationName": "x23341963budgettracker",
+              "EnvironmentName": "x23341963budgettracker-casper"
+            },
+            "outputArtifacts": [],
+            "inputArtifacts": [
+              {
+                "name": "BuildArtifact"
+              }
+            ],
+            "region": "eu-west-1",
+            "namespace": "DeployVariables"
+          }
+        ],
+        "onFailure": {
+          "result": "ROLLBACK"
+        }
+      }
+    ],
+    "version": 1,
+    "executionMode": "QUEUED",
+    "pipelineType": "V2"
+  }
+}
