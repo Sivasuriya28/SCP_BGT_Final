@@ -21,7 +21,7 @@
             "runOrder": 1,
             "configuration": {
               "Branch": "main",
-              "OAuthToken": "ghp_yourGitHubTokenHere",
+              "OAuthToken": "****",
               "Owner": "Sivasuriya28",
               "PollForSourceChanges": "false",
               "Repo": "SCP_BGT_Final"
